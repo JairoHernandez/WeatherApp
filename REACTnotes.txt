@@ -1,0 +1,51 @@
+------Controlled Components and Binding Context------
+
+The state should tell the input what its value should be.
+
+EXAMPLE:
+    <input onChange={event => this.setState({ term: event.target.value })} />
+
+Whenever you are passing a callback like this 
+
+    <input onChange={this.onInputChange} />
+
+you need to bind the context like this
+
+    constructor(props) {
+        super(props);
+
+        this.state = { term: ''};
+
+        // Take existing fuction onInputChange and bind it to this.
+        // where this inside bind is SearchBar
+        this.onInputChange = this.onInputChange.bind(this); 
+    }
+
+Other wise you will get this error:  Uncaught TypeError: Cannot read property 'setState' of undefined
+Another way is to pass in the arrow function into <input onChange={} /> but that looks ugly:
+    
+    onChange={event => this.onInputChange(event.target.value)} />
+
+------Form Elements in React------
+
+To prevent full page reload add an even handler to form element.
+
+------Working wiht APIs------
+
+website --> openweathermap.org/forecast5
+
+API call:
+api.openweathermap.org/data/2.5/forecast?q={city name},{country code}
+
+------Introduction to MiddleWare------
+
+Middleware sits in between returning an action and the reducer.
+Does one of the following:
+    - Let's action pass, manipulates it, logs it, or stops it.
+Middleware is like the gatekeeper/bouncer.
+YOu can have 0 to 100+ pieces of middleware. They are all just functions that take in actions
+before hitting reducer.
+
+    indes.js
+        import ReduxPromise from 'redux-promise';
+        const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
