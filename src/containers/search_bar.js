@@ -43,7 +43,10 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
+    // allows action creator to flow through the reducer
+    // aka sends action type and payload from action creator to reducer.
     return bindActionCreators({fetchWeather}, dispatch);
 }
 
+// null is necessary since first field is for mapStateToProps and it's not being used in this smartcomponent
 export default connect(null, mapDispatchToProps)(SearchBar);

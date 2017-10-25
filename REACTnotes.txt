@@ -46,6 +46,50 @@ Middleware is like the gatekeeper/bouncer.
 YOu can have 0 to 100+ pieces of middleware. They are all just functions that take in actions
 before hitting reducer.
 
-    indes.js
+    index.js
         import ReduxPromise from 'redux-promise';
         const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+
+        ReactDOM.render(
+            <Provider store={createStoreWithMiddleware(reducers)}>
+
+------Redux-Promise Continued.------
+
+Basically this returns a promise not data
+
+    actions/index.js
+        const request = axios.get(url);
+    
+which is then assigned to payload and sent off to reducer
+
+        payload: request
+
+    reducers/reducer_weather.js
+        export default function(state=null, action) {
+        console.log('Action received', action);
+
+        return state;
+    }
+
+The data is then retrieved once the promise is resolved by redux-promise, which is middleware.
+
+    index.js
+        import ReduxPromise from 'redux-promise';
+
+which then sends off to the reducer. Remember the action will also always accompany the data(payload).
+Again, redux-promise is a great example of all the heavy lifting middleware can do.
+This way we no longer have to appen complicated code using callback/.then to our basi async axios call.
+
+------Avoiding state mutations in Reducers------
+
+Huge pitfall do not do this because will change and mutate your state.
+
+    reducers/reducer_weather.js
+        return state.concat([action.payload.data])
+    
+This is like the same rule where you cannot make this.state = something you have to use setState function.
+Instead use concat because it will still leave orginal state in tact but instead creates a new state.
+
+        // return state.concat([action.payload.data]); // Goal is to add to list(aka add to state) more cities.
+        // Equivalent to this.
+        return [ action.paylod.data, ...state ]; // Flattens this out to [ city, city, city ] not [ city, [city, city,] 
