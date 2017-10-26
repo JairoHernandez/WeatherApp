@@ -3,6 +3,18 @@ import { connect } from 'react-redux';
 
 
 class WeatherList extends Component {
+
+    renderWeather(cityData) {
+        
+        const name = cityData.city.name;
+        
+        return (
+            <tr key={name}>
+                <td>{name}</td>
+            </tr>
+        );
+    }
+
     render() {
         return (
             <table className="table table-hover">
@@ -15,6 +27,7 @@ class WeatherList extends Component {
                     </tr>
                 </thead>
                 <tbody>
+                    {this.props.weather.map(this.renderWeather)}
                 </tbody>
             </table>
         );
@@ -27,6 +40,7 @@ function mapStateToProps({ weather }){ // changed passed in 'state' to '{ weathe
     /** These are all equivalent */
     //return { weather: state.weather } // state.weather is from combineReducers in reducers/index.js
     //return { weather: weather }; // which now becomes this thanks to '{ weather }' equaling const weather = state.weather
+    console.log('MAPSTATETOPROPS:', { weather });
     return { weather }; // which now becomes this
 }
 
