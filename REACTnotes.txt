@@ -93,3 +93,7 @@ Instead use concat because it will still leave orginal state in tact but instead
         // return state.concat([action.payload.data]); // Goal is to add to list(aka add to state) more cities.
         // Equivalent to this.
         return [ action.paylod.data, ...state ]; // Flattens this out to [ city, city, city ] not [ city, [city, city,] 
+
+------Adding Sparkline charts------  
+
+React-sparklines is a 3rd party library.
