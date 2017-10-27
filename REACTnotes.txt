@@ -97,3 +97,6 @@ Instead use concat because it will still leave orginal state in tact but instead
 ------Adding Sparkline charts------  
 
 React-sparklines is a 3rd party library.
+
+SKIP OVER THE FIRST "React Router + Redux Form" AND GO TO THE MORE UPDATED
+SECTION LAST SECTION IN THE COURSE WITH THE SAME NAME.
