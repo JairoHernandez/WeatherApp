@@ -1,3 +1,16 @@
+HEROKU DEPLOY
+This might help...delete bundle.js and recreate it after getting package.json just right.
+jairomh@DEV2:~/REACTmodern/YouTubeSearch$ heroku login
+App 
+floating-spire-27492 was already created from workPC 3 days ago but failed heroku deployment.
+jairomh@DEV2:~/REACTmodern/WeatherApp$ git remote add heroku https://git.heroku.com/floating-spire-27492.git
+jairomh@DEV2:~/REACTmodern/WeatherApp$ git remote -v
+heroku	https://git.heroku.com/floating-spire-27492.git (fetch)
+heroku	https://git.heroku.com/floating-spire-27492.git (push)
+origin	git@github.com:JairoHernandez/WeatherApp.git (fetch)
+origin	git@github.com:JairoHernandez/WeatherApp.git (push)
+
+
 ------Controlled Components and Binding Context------
 
 The state should tell the input what its value should be.
