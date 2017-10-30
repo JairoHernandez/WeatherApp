@@ -26,6 +26,7 @@ origin	git@github.com:JairoHernandez/WeatherApp.git (push)
 This failed too so i had to set this back to true.
 jairomh@DEV2:~/REACTmodern/WeatherApp$ heroku config:set NPM_CONFIG_PRODUCTION=true
 
+GoogleMaps API key:  AIzaSyDmIQqZluFrKw_ZajvktyqmQQKkAvJCKhw
 
 
 ------Controlled Components and Binding Context------
