@@ -10,6 +10,15 @@ heroku	https://git.heroku.com/floating-spire-27492.git (push)
 origin	git@github.com:JairoHernandez/WeatherApp.git (fetch)
 origin	git@github.com:JairoHernandez/WeatherApp.git (push)
 
+This failed too so I deleted floating-spire app from Heroku and created a new one.
+Also removed heroku from being listed in git remote -v.
+
+jairomh@DEV2:~/REACTmodern/WeatherApp$ heroku create
+ ▸    heroku-cli: update available from 6.12.4 to 6.14.36-15f8a25
+Creating app... done, ⬢ quiet-oasis-91281
+https://quiet-oasis-91281.herokuapp.com/ | https://git.heroku.com/quiet-oasis-91281.git
+
+
 
 ------Controlled Components and Binding Context------
 
